@@ -42,7 +42,7 @@ function transform(obj, iterator, recurse) {
 
   Object.keys(obj).forEach(function(key) {
     // recurse if requested and possible
-    if (recurse && typeof obj[key] === 'object' && Object.keys(obj[key]).length) {
+    if (recurse && typeof obj[key] !== null && obj[key] === 'object' && Object.keys(obj[key]).length) {
       transform(obj[key], iterator, recurse);
     }
 
