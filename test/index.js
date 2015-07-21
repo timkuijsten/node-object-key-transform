@@ -33,7 +33,7 @@ describe('transform', function () {
   });
 
   it('should require transformer to be a function', function() {
-    (function() { transform({}); }).should.throw('transformer must be a function');
+    (function() { transform({}); }).should.throw('iterator must be a function');
   });
 
   it('should require recurse to be a boolean', function() {
@@ -61,6 +61,17 @@ describe('transform', function () {
   it('should pass values as well', function() {
     var obj = { foo: 'bar' };
     transform(obj, function(key, val) { should.strictEqual(val, 'bar'); });
+  });
+
+  it('doesnt fail when object contains null', function() {
+    var obj = {
+      test: {
+        value: null
+      }
+    };
+
+    transform(obj, function(a) { return a + 'b'; }, true);
+    should.deepEqual(obj, { testb: { valueb: null } });
   });
 
   it('should recurse', function() {
