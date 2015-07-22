@@ -15,6 +15,7 @@
     "transformer",
     "transformation"
   ],
+  "contributors": ["mkrn"],
   "main": "index.js",
   "bugs": "https://github.com/timkuijsten/node-object-key-transform/issues",
   "devDependencies": {

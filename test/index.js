@@ -63,7 +63,7 @@ describe('transform', function () {
     transform(obj, function(key, val) { should.strictEqual(val, 'bar'); });
   });
 
-  it('doesnt fail when object contains null', function() {
+  it('should not recurse when a value equals null', function() {
     var obj = {
       test: {
         value: null
